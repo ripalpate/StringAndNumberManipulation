@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StringAndNumberManipulation
 {
@@ -6,7 +7,16 @@ namespace StringAndNumberManipulation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Enter random number separating by comma");
+            var y = Console.ReadLine();
+            var seperateString = y.Split(',');
+            int x = 1;
+            foreach (var z in seperateString)
+            {
+                x = x * Convert.ToInt32(z); 
+            }
+            Console.WriteLine(x);
+            Console.ReadLine();
         }
     }
 }
