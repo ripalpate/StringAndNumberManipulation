@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace StringAndNumberManipulation
 {
@@ -9,14 +8,30 @@ namespace StringAndNumberManipulation
         {
             Console.WriteLine("Enter random number separating by comma");
             var y = Console.ReadLine();
+            Console.WriteLine("Do you want to multiply or square the number?");
+            var selectedChoice = Console.ReadLine().ToLower();
             var seperateString = y.Split(',');
             int x = 1;
-            foreach (var z in seperateString)
+            if (selectedChoice == "multiply")
             {
-                x = x * Convert.ToInt32(z); 
+                foreach (var z in seperateString)
+                {
+                    x = x * Convert.ToInt32(z);
+                }
+                Console.WriteLine("Multiplication is: {0}", x);
+                Console.ReadLine();
             }
-            Console.WriteLine(x);
-            Console.ReadLine();
+            else if (selectedChoice == "square") {
+                var convertingString = " ";
+                foreach (var z in seperateString) {
+                    var c = 1;
+                    c = c * Convert.ToInt16(z);
+                    var Sqr = Math.Pow(c, 2);
+                    convertingString += Sqr.ToString()+",";
+                }
+                Console.WriteLine("Squares are: {0}", convertingString.TrimEnd(','));
+                Console.ReadLine();
+            }
         }
     }
 }
